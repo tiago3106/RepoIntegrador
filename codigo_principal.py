@@ -4,6 +4,7 @@ while bucle:
     opcion = menu() #llama a la funcion menu que esta en el funcion_menu.py
     match opcion:
         case "1":
+            #buscar un país por el nombre
             None
         case "2":
             #filtrar paises por continente, rango de poblacion o rango de superficie
