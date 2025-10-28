@@ -3,17 +3,11 @@ def validar_numero(caracteres):
     try:
         valor = int(caracteres)
         condicion = True
-    except ValueError:
+    except ValueError: 
+        print('Carácter inválido, ingrese solo números')
         condicion = False
     return condicion
-def verificar_existencia_archivo(nombre_archivo):
-    try:
-        with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
-            # Si el archivo se abre correctamente, salimos del bucle
-            bucle = False
-            return bucle
-    except FileNotFoundError:
-        print("El archivo no existe. Por favor, ingrese un nombre de archivo válido.")
+
 
 #agregar que validaciones haran falta
 #formas de traer una funcion de otro archivo
