@@ -9,10 +9,6 @@ def filtrar(nombre_archivo):
     match opcion:
         case '1':
             None
-
-
-
-
     # for linea in paises:
     #     if linea[0] == pais_encontrar:
     #         print(linea)
