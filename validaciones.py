@@ -2,11 +2,9 @@
 def validar_numero(caracteres):
     try:
         valor = int(caracteres)
-        condicion = True
+        return valor
     except ValueError: 
         print('Carácter inválido, ingrese solo números')
-        condicion = False
-    return condicion
 
 
 #agregar que validaciones haran falta
