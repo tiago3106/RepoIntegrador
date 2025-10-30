@@ -27,12 +27,12 @@ def buscar_archivos():
             else:
                 while continuar:
                     elecion = input("(1) ingresar otro nombre  o (2) crear un nuevo archivo con el nombre ingresado: ")
-                    validar_numero = validar_numero(elecion)
-                    if validar_numero and int(elecion) == 2:
+                    numero_validado = validar_numero(elecion)
+                    if elecion == 2:
                         crear_archivo(archivo_paises)
                         bucle = False
                         break
-                    elif validar_numero and int(elecion) == 1:
+                    elif elecion == 1:
                         continuar = True    
                     else:
                         print("Opción inválida reingrese el nombre.")

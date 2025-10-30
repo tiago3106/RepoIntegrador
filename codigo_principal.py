@@ -18,6 +18,7 @@ while bucle:
             buscar_pais(nombre_archivo)
         case 2:
             #filtrar paises por continente, rango de poblacion o rango de superficie
+            
             filtrar(nombre_archivo)
             
         case 3:

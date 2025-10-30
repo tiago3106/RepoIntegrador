@@ -1,6 +1,6 @@
 from manejo_de_archivos import lista_pais
 from filtrar_continente import continente_filtrado
-
+from rango_de_poblacion import rango_de_poblacion
 from validaciones import validar_numero
 #filtrar paises por continente, rango de poblacion o rango de superficie
 def filtrar(nombre_archivo):
@@ -14,9 +14,7 @@ def filtrar(nombre_archivo):
         case 1:
             continente_filtrado(paises)
         case 2:
-            None         
-
-
-                    
-
+            rango_de_poblacion(paises)
+        case 3:
+            print("lechuga") 
 
