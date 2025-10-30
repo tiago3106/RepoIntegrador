@@ -1,4 +1,6 @@
 from manejo_de_archivos import lista_pais
+from filtrar_continente import continente_filtrado
+
 from validaciones import validar_numero
 #filtrar paises por continente, rango de poblacion o rango de superficie
 def filtrar(nombre_archivo):
@@ -10,12 +12,11 @@ def filtrar(nombre_archivo):
     opcion = validar_numero(opcion)
     match opcion:
         case 1:
-            continente=input("Ingrese el continente a filtrar: ").lower()
-            for linea in paises:
-                if linea[3] == continente:
-                    print(linea)
-            
-    # for linea in paises:
-    #     if linea[0] == pais_encontrar:
-    #         print(linea)
-    #         break
+            continente_filtrado(paises)
+        case 2:
+            None         
+
+
+                    
+
+
