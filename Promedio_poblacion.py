@@ -4,5 +4,5 @@ def promedio_de_la_poblacion(paises):
     cantidad=len(datos)
     for linea in datos:
         total_poblacion = total_poblacion + int(linea[1]) #Se hace la suma de todas las poblaciones
-    total_poblacion= total_poblacion/cantidad
+    total_poblacion= total_poblacion/cantidad #Se calcula el promedio
     print(f'El promedio de la población de los paises es: "{total_poblacion}"')
