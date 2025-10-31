@@ -1,5 +1,5 @@
-#Funcion para ordenar la poblacion de mayor a menor
-def poblacion_ordenada(paises):
+#País con mayor y menor población
+def mayor_menor_poblacion(paises):
     ordenado = False
     while not ordenado:
         ordenado = True
@@ -14,5 +14,11 @@ def poblacion_ordenada(paises):
                     paises[j], paises[j + 1] = paises[j + 1], paises[j]
                     ordenado = False
 
-    for linea in range(n):
-        print(paises[linea])
+    for linea in range(1):
+        print(f'El pais con mayor pobacion es: "{paises[1]}"')
+        print(f'El pais con menor pobacion es: "{paises[-1]}"')
+
+
+
+
+
