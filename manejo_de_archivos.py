@@ -20,25 +20,24 @@ def buscar_archivos():
     continuar = True
     while bucle: #bucle para buscar un archivo por su nombre o crear uno nuevo
         archivo_paises = input("Ingrese el nombre del archivo con los datos de los paises: ")
-        if archivo_paises.endswith(".csv"): #verifica que el archivo tenga extension .csv
-            bucle = verificar_existencia_archivo(archivo_paises) #llama a la funcion verificar_existencia_archivo
-            if bucle == False:
-                print("Archivo cargado correctamente.") 
-            else:
-                while continuar:
-                    elecion = input("(1) ingresar otro nombre  o (2) crear un nuevo archivo con el nombre ingresado: ")
-                    numero_validado = validar_numero(elecion)
-                    if elecion == 2:
-                        crear_archivo(archivo_paises)
-                        bucle = False
-                        break
-                    elif elecion == 1:
-                        continuar = True    
-                    else:
-                        print("Opción inválida reingrese el nombre.")
+        if not archivo_paises.endswith(".csv"): #verifica que el archivo tenga extension .csv
+            archivo_paises += ".csv"
+        bucle = verificar_existencia_archivo(archivo_paises) #llama a la funcion verificar_existencia_archivo
+        if bucle == False:
+            print("Archivo cargado correctamente.") 
         else:
-            archivo_paises + ".csv"
-            print(archivo_paises)
+            while continuar:
+                elecion = input("(1) ingresar otro nombre  o (2) crear un nuevo archivo con el nombre ingresado: ")
+                numero_validado = validar_numero(elecion)
+                if elecion == 2:
+                    crear_archivo(archivo_paises)
+                    bucle = False
+                    break
+                elif elecion == 1:
+                    continuar = True    
+                else:
+                    print("Opción inválida reingrese el nombre.")
+        print(archivo_paises)
     return archivo_paises
 
 def lista_pais(archivo_paises):

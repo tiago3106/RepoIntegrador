@@ -4,7 +4,6 @@ from manejo_de_archivos import buscar_archivos, lista_pais
 from buscar_pais_1 import buscar_pais
 nombre_archivo= buscar_archivos() 
 from validaciones import validar_numero
-from metodos_de_ordenamiento import ordenar_paises_por_nombre
 from Ordenamiento_principal_3 import ordenamiento_principal
 from Estadisticas_paises import Estadisticas_generales
 paises= lista_pais(nombre_archivo)
@@ -15,7 +14,6 @@ while bucle:
     match opcion:
         case 1:
             # buscar un país por el nombre
-            ordenar_paises_por_nombre(nombre_archivo)
             buscar_pais(nombre_archivo)
         case 2:
             # filtrar paises por continente, rango de poblacion o rango de superficie

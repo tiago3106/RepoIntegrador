@@ -5,6 +5,11 @@ def validar_numero(caracteres):
         return valor
     except ValueError: 
         print('Carácter inválido, ingrese solo números')
+def validar_indice(lista,indice):
+    try:
+        lista[indice]
+    except IndexError:
+        print('Índice inválido, fuera de rango')
 
 
 #agregar que validaciones haran falta
