@@ -2,14 +2,15 @@ from funcion_menu import menu
 from filtrar_pais_2 import filtrar
 from manejo_de_archivos import buscar_archivos, lista_pais 
 from buscar_pais_1 import buscar_pais
-nombre_archivo= buscar_archivos() 
 from validaciones import validar_numero
 from Ordenamiento_principal_3 import ordenamiento_principal
 from Estadisticas_paises import Estadisticas_generales
+from agregar_pais_5 import agregar_pais
+from modificar_pais_6 import modificar_pais
+nombre_archivo= buscar_archivos() 
 paises= lista_pais(nombre_archivo)
-bucle = True
-while bucle:
-    #llama a la funcion menu que esta en el funcion_menu.py
+while True:
+    #llama a la funcion menu que muestra las opciones y devuelve la opcion elegida 
     opcion = validar_numero(menu())
     match opcion:
         case 1:
@@ -28,9 +29,9 @@ while bucle:
             Estadisticas_generales(nombre_archivo)
         case 5:
             #agregar pais
-            None
+            agregar_pais(nombre_archivo)
         case 6:   
             #modificar pais
-            None
+            modificar_pais(nombre_archivo)
         case 7:
-            bucle = False
+            break

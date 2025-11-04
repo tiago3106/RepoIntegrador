@@ -1,5 +1,5 @@
 from validaciones import validar_numero
-def menu():
+def menu(): #funcion que muestra el menu y devuelve la opcion elegida
     print("1. Buscar un pais.")
     print("2. Filtrar un pais")
     print("3. ordenar paises")
