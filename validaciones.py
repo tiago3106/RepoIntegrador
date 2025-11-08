@@ -14,28 +14,22 @@ def validar_indice(lista,indice):
         lista[indice]
     except IndexError:
         print('Índice inválido, fuera de rango')
+#validar nombre de pais o continente
 def normalizar_nombre(t):
     titulo = (t.strip()).lower()
     return t
 
-
 def nombre_valido(t: str) -> bool:
     titulo = normalizar_nombre(t)
-    if titulo == 0:
+    if len(titulo) == 0:
         return False
     else:
         return True
 
-
-def pedir_nombre(tipo):
+def pedir_nombre(tipo: str) -> str:
     while True:
         titulo = input(f"ingrese el nombre{tipo}: ")
         condicion = nombre_valido(titulo) #llama la funcion titulo valido que devuelve true  si existe
         if condicion == True:
             break
     return titulo 
-
-#agregar que validaciones haran falta
-#formas de traer una funcion de otro archivo
-#from nombre_del_archivo import nombre_de_la_funcion
-#import nombre_del_archivo

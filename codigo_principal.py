@@ -4,7 +4,7 @@ from manejo_de_archivos import buscar_archivos, lista_pais
 from buscar_pais_1 import buscar_pais
 from validaciones import validar_numero
 from Ordenamiento_principal_3 import ordenamiento_principal
-from Estadisticas_paises import Estadisticas_generales
+from Estadisticas_paises_4 import Estadisticas_generales
 from agregar_pais_5 import agregar_pais
 from modificar_pais_6 import modificar_pais
 nombre_archivo= buscar_archivos() 
