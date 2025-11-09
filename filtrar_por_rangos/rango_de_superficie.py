@@ -1,63 +1,50 @@
 from validaciones import validar_numero
-import re
 
 def rango_de_superficie(paises):
-    """Filtra países por rango de superficie. 'paises' es la lista devuelta por lista_pais()."""
-    # pedir y validar rango mínimo
+    """Filtra países por rango de superficie (datos limpios)."""
+    
+    # --- Encontrar Min/Max ---
+    minimo_en_lista_dict = min(paises, key=lambda item: item["superficie"])
+    maximo_en_lista_dict = max(paises, key=lambda item: item["superficie"])
+
+    # Extrae el numero nomas
+    minimo_en_lista_valor = minimo_en_lista_dict["superficie"]
+    maximo_en_lista_valor = maximo_en_lista_dict["superficie"]
+    
+    print(f"La superficie mínima en la lista es: {minimo_en_lista_valor}")
+    print(f"La superficie máxima en la lista es: {maximo_en_lista_valor}")
+
+    # --- Pedir y validar rango mínimo ---
     while True:
-        entrada_min = input("Ingrese el rango mínimo de superficie de los países buscados: ").strip()
-        min_val = validar_numero(entrada_min)
-        if min_val is not None:
-            break
-        print("Ingrese un número válido para el mínimo.")
-    # pedir y validar rango máximo
+        entrada_min = validar_numero(input("Ingrese el rango mínimo de superficie: ").strip())
+        if entrada_min is not None:
+            rango_min = entrada_min
+            if rango_min >= minimo_en_lista_valor:
+                break
+            else:
+                print(f"Valor menor al mínimo: {minimo_en_lista_valor}. Intente nuevamente.")
+    
+    # --- Pedir y validar rango máximo ---
     while True:
-        entrada_max = input("Ingrese el rango máximo de superficie de los países buscados: ").strip()
-        max_val = validar_numero(entrada_max)
-        if max_val is not None:
-            break
-        print("Ingrese un número válido para el máximo.")
-
-    if min_val > max_val:
-        min_val, max_val = max_val, min_val
-
-    print(f'Los países que se encuentran entre {min_val} y {max_val} de superficie son:')
-
-    datos = paises[1:] if len(paises) > 1 else []
+        entrada_max = validar_numero(input("Ingrese el rango máximo de superficie: ").strip())
+        if entrada_max is not None:
+            rango_max = entrada_max
+            if rango_max <= maximo_en_lista_valor:
+                break
+            else:
+                print(f"Valor excede el máximo: {maximo_en_lista_valor}. Intente nuevamente.")
+    print(f'Los países que se encuentran entre {rango_min} y {rango_max} son:')
+    # --- Bucle de filtrado ---
     encontrados = []
 
-    for row in datos:
-        # CSV esperado: nombre,poblacion,superficie,continente -> superficie en índice 2
-        if len(row) > 2:
-            raw = row[2].strip()
-            # eliminar todo lo que no sea dígito para manejar comas, puntos, espacios
-            digits = re.sub(r'\D', '', raw)
-            if not digits:
-                continue
-            superficie = int(digits)
-            if min_val <= superficie <= max_val:
-                nombre = row[0].strip().title() if len(row) > 0 else ""
-                continente = row[3].strip().title() if len(row) > 3 else ""
-                encontrados.append((nombre, superficie, continente))
+    for pais in paises: 
+        superf = pais["superficie"] # superf es superficie
+        if rango_min <= superf <= rango_max:
+            encontrados.append((pais["pais"], superf, pais["continente"]))
 
+    # --- Imprimir resultados ---
     if encontrados:
-        for nombre, superficie, continente in encontrados:
-            print(f"{nombre} - Superficie: {superficie} - Continente: {continente}")
+        for pais in encontrados:
+            print(f"País: {pais[0]}, Superficie: {pais[1]}, Continente: {pais[2]}")
     else:
-        print(f"No hay ningún país con un rango de superficie entre {min_val} y {max_val}")
-
-
-def maximo_minimo_superficie(paises):
-    """Devuelve (minimo, maximo) de superficies encontradas en 'paises'."""
-    datos = paises[1:] if len(paises) > 1 else []
-    superficies = []
-    for row in datos:
-        if len(row) > 2:
-            raw = row[2].strip()
-            digits = re.sub(r'\D', '', raw)
-            if not digits:
-                continue
-            superficies.append(int(digits))
-    if not superficies:
-        return 0, 0
-    return min(superficies), max(superficies)
+        print(f"No hay ningún país con un rango de superficie entre {rango_min} y {rango_max}")

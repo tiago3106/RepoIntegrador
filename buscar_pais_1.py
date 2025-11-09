@@ -1,15 +1,17 @@
-from manejo_de_archivos import lista_pais
 #buscar un país por el nombre
-def buscar_pais(nombre_archivo):
-    paises= lista_pais(nombre_archivo)
-    pais_encontrar= input('Ingrese el país que desea encontrar: ').lower()
-    bandera = False
+def buscar_pais(paises):
+    bandera= False
+    pais_encontrar = input('Ingrese el nombre del país que desea encontrar o las iniciales: ').strip().lower()
+
+    # Si la entrada está vacía, no buscamos nada.
+    if not pais_encontrar:
+        print("Búsqueda cancelada. No se ingresó un nombre.")
+        return # Salimos de la función
+
     for linea in paises:
-        if linea[0] == pais_encontrar: #itera cada linea hsta encontrar el pais
-            print(linea)
-            bamdera = True
-            break
-    if bandera == False:
+        if linea['pais'].lower().startswith(pais_encontrar):
+            print(f"País encontrado: {linea['pais']}, Población: {linea['poblacion']}, Superficie: {linea['superficie']}, Continente: {linea['continente']}")
+            bandera= True
+            
+    if not bandera: 
         print('El país no se encuentra en la lista')
-
-
