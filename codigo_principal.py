@@ -16,7 +16,6 @@ cambios_sin_guardar = False
 while True:
     # Llama a la funcion menu que muestra las opciones
     opcion = validar_numero(menu())
-    
     match opcion:
         case 1:
             # buscar un país 
