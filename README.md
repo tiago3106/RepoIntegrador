@@ -31,7 +31,8 @@ selecionar la de ordenar paises por poblacion de mayor a menor
 En el menu pricipal selecionar la 7 y ahora si abris el archivo csv deberia estar ordenado como lo modificaste
 
 --------Participacion--------
-Juan: 
-Tiago:
+Juan: 50%
+Tiago: 50%
 
-
+--------video en drive--------
+https://drive.google.com/drive/folders/1FXPoUpPsi88vZJQT9lqBEQBNOrFiYjjj?usp=drive_link
