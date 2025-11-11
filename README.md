@@ -36,3 +36,7 @@ Tiago: 50%
 
 --------video en drive--------
 https://drive.google.com/drive/folders/1FXPoUpPsi88vZJQT9lqBEQBNOrFiYjjj?usp=drive_link
+
+
+
+Usamos las bibliotecas OS y CSV.
